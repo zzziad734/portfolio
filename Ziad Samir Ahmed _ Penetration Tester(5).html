@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ziad Samir Ahmed | Penetration Tester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090f;--card:rgba(255,255,255,.045);--bd:rgba(255,255,255,.1);--fg:#eef1f7;--mute:#9aa4b8;--a1:#34e0a1;--a2:#38bdf8;--a3:#ff8a5c;--nav:rgba(10,13,22,.7);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f6fb;--card:rgba(255,255,255,.8);--bd:rgba(12,20,40,.1);--fg:#0c1220;--mute:#56617a;--a1:#08a874;--a2:#0b7fc2;--a3:#e0592a;--nav:rgba(255,255,255,.75)}}
+:root[data-theme="light"]{--bg:#f3f6fb;--card:rgba(255,255,255,.8);--bd:rgba(12,20,40,.1);--fg:#0c1220;--mute:#56617a;--a1:#08a874;--a2:#0b7fc2;--a3:#e0592a;--nav:rgba(255,255,255,.75)}
+:root[data-theme="dark"]{--bg:#07090f;--card:rgba(255,255,255,.045);--bd:rgba(255,255,255,.1);--fg:#eef1f7;--mute:#9aa4b8;--a1:#34e0a1;--a2:#38bdf8;--a3:#ff8a5c;--nav:rgba(10,13,22,.7)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:"Space Grotesk",Inter,system-ui,sans-serif;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--a1);outline-offset:3px}
+.grad{background:linear-gradient(110deg,var(--a1),var(--a2) 60%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.aur{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aur i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.28;animation:drift 18s ease-in-out infinite alternate}
+.aur i:nth-child(1){width:520px;height:520px;background:var(--a1);top:-120px;left:-100px}
+.aur i:nth-child(2){width:480px;height:480px;background:var(--a2);top:30%;right:-140px;animation-delay:-6s}
+.aur i:nth-child(3){width:380px;height:380px;background:var(--a3);bottom:-120px;left:30%;opacity:.16;animation-delay:-11s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header.nav{position:sticky;top:0;z-index:10;background:var(--nav);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);padding-top:env(safe-area-inset-top,0px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font:700 18px "Space Grotesk",sans-serif}
+.logo b{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--a1),var(--a2));display:grid;place-items:center;color:#04130d;font-size:14px}
+.links{display:flex;gap:4px}
+.links a{padding:7px 14px;border-radius:999px;font-size:15px;color:var(--mute);transition:.2s}
+.links a:hover{color:var(--fg)}
+.links a.on{background:var(--card);color:var(--fg);box-shadow:inset 0 0 0 1px var(--bd)}
+.right{display:flex;gap:10px;align-items:center}
+#theme{background:var(--card);border:1px solid var(--bd);color:var(--fg);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:12px;font:600 15px Inter,sans-serif;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.p{background:linear-gradient(110deg,var(--a1),var(--a2));color:#04130d;box-shadow:0 8px 30px -8px var(--a1)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--a1)}
+.btn.g{border-color:var(--bd);background:var(--card)}
+.btn.g:hover{border-color:var(--a1)}
+.hero{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;padding:84px 0 56px}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid var(--bd);background:var(--card);border-radius:999px;font-size:14px;color:var(--mute)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--a1);box-shadow:0 0 0 0 var(--a1);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px transparent}}
+h1{font-size:clamp(44px,8vw,88px);line-height:1.02;margin:22px 0 10px;font-weight:700}
+.role{font:600 clamp(20px,3vw,28px) "Space Grotesk",sans-serif;margin:0 0 18px}
+.lead{font-size:19px;color:var(--mute);max-width:32em;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+
+.social-links{display:flex;gap:14px;align-items:center}
+.social-icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:var(--card);border:1px solid var(--bd);color:var(--fg);transition:transform .2s,border-color .2s,color .2s,box-shadow .2s}
+.social-icon svg{width:22px;height:22px;fill:currentColor}
+.social-icon:hover{transform:translateY(-3px);border-color:var(--a1);color:var(--a1);box-shadow:0 6px 20px -6px color-mix(in srgb,var(--a1) 30%,transparent)}
+
+.mq{border-block:1px solid var(--bd);overflow:hidden;padding:16px 0;margin:8px 0 0;mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mt{display:flex;gap:44px;width:max-content;animation:mq 34s linear infinite;font:600 18px "Space Grotesk",sans-serif;color:var(--mute)}
+.mt span::before{content:"\2726";color:var(--a1);margin-right:44px}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:84px 0 0}
+.eyebrow{font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--a1);margin:0 0 10px}
+h2{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:0 0 14px;font-weight:700}
+.sub{color:var(--mute);margin:0 0 36px;max-width:36em}
+.card{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:26px;overflow:hidden;transition:border-color .25s,transform .25s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--a1) 16%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{border-color:color-mix(in srgb,var(--a1) 45%,var(--bd));transform:translateY(-3px)}
+.card:hover::before{opacity:1}
+.card h3{font-size:19px;margin:0 0 10px}
+.card p{margin:0;color:var(--mute);font-size:16px}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.s4{grid-column:span 4}.s2{grid-column:span 2}.s3{grid-column:span 3}
+.k{font:600 13px Inter,sans-serif;color:var(--a1);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.big{font:700 26px "Space Grotesk",sans-serif}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tabs button{background:var(--card);border:1px solid var(--bd);color:var(--mute);padding:8px 18px;border-radius:999px;font:500 14px Inter,sans-serif;cursor:pointer;transition:.2s}
+.tabs button.on,.tabs button:hover{color:#04130d;background:linear-gradient(110deg,var(--a1),var(--a2));border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chips span{padding:5px 13px;border-radius:999px;background:color-mix(in srgb,var(--a2) 12%,transparent);border:1px solid color-mix(in srgb,var(--a2) 28%,transparent);font-size:14px}
+[hidden]{display:none!important}
+.now{margin-top:16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;border-color:color-mix(in srgb,var(--a1) 50%,var(--bd))}
+.now .bar{flex:1;min-width:200px;height:8px;border-radius:99px;background:var(--bd);overflow:hidden}
+.now .bar i{display:block;height:100%;width:45%;border-radius:99px;background:linear-gradient(90deg,var(--a1),var(--a2),var(--a1));background-size:200% 100%;animation:sh 2.4s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.tl{position:relative;padding-left:30px;border-left:2px solid var(--bd);margin-left:6px}
+.tl .it{position:relative;margin-bottom:18px}
+.tl .it::before{content:"";position:absolute;left:-39px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--a1);box-shadow:0 0 0 5px color-mix(in srgb,var(--a1) 18%,transparent)}
+.when{font:600 13px Inter,sans-serif;color:var(--a1);margin-bottom:2px}
+.cert .src{font-size:13px;color:var(--a3);font-weight:600;margin-bottom:8px}
+.cert small{display:block;margin-top:10px;color:var(--mute);font-size:14px}
+.pf{display:flex;justify-content:space-between;align-items:center;font:600 18px "Space Grotesk",sans-serif}
+.pf span{color:var(--a1);transition:transform .2s}.pf:hover span{transform:translateX(5px)}
+.cc{text-align:center;padding:56px 24px;background:linear-gradient(135deg,color-mix(in srgb,var(--a1) 14%,var(--card)),color-mix(in srgb,var(--a2) 14%,var(--card)));border-radius:28px}
+.cc h2{margin-bottom:10px}
+.cc .lead{margin:0 auto 26px}
+.contact-emails{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:20px}
+footer{padding:48px 0 40px;text-align:center;color:var(--mute);font-size:14px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:48px}.s4,.s2,.s3{grid-column:span 6}.links{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="aur" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top" aria-label="Home"><b>ZS</b>Ziad Samir</a>
+  <nav class="links" aria-label="Main"><a href="#about">About</a><a href="#skills">Skills</a><a href="#foundations">Foundations</a><a href="#platforms">Active Platforms</a><a href="#training">Training</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a></nav>
+  <div class="right"><button id="theme" type="button" aria-label="Toggle light and dark theme">&#9680;</button><a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=Zziadsamir11@gmail.com" target="_blank" rel="noopener">Email me</a></div>
+</div></header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <span class="pill"><i></i>Available for remote work &middot; Cairo, Egypt</span>
+      <h1>Hi, I'm <span class="grad">Ziad Samir Ahmed</span></h1>
+      <p class="role">Penetration Tester</p>
+      <p class="lead">Breaking things to learn how to secure them. I test web applications and networks, and write clear reports with evidence and fixes.</p>
+      <div class="cta"><a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=Zziadsamir11@gmail.com" target="_blank" rel="noopener">Get in touch</a><a class="btn g" href="#platforms">Active Platforms</a></div>
+      
+      <div class="social-links">
+        <a class="social-icon" href="https://www.linkedin.com/in/ziadsamir12" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <a class="social-icon" href="https://github.com/ziadsamir12" target="_blank" rel="noopener" aria-label="GitHub Profile">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </a>
+        <a class="social-icon" href="https://wa.me/201276907158" target="_blank" rel="noopener" aria-label="WhatsApp Contact">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.24 3.69 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.18 8.18 0 0 1-5.82 2.42c-1.5 0-2.97-.39-4.26-1.14l-.3-.18-3.12.82.83-3.04-.2-.32a8.19 8.19 0 0 1-1.26-4.38c0-4.55 3.69-8.24 8.25-8.24m4.52 10.3c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.15.17-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.55-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.3z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="mq" aria-label="Vulnerabilities Covered"><div class="mt" id="mt"><span>SQL Injection (SQLi)</span><span>Insecure Direct Object References (IDOR)</span><span>Broken Access Control</span><span>Path Traversal</span><span>OS Command Injection</span><span>Server-Side Template Injection (SSTI)</span><span>Arbitrary File Upload</span><span>Cross-Site Scripting (XSS)</span><span>Server-Side Request Forgery (SSRF)</span></div></div>
+
+  <section id="about">
+    <p class="eyebrow">About</p><h2>Security student, <span class="grad">hands-on</span> by habit</h2>
+    <div class="bento">
+      <div class="card s4">
+        <p>My journey into cybersecurity started with almost no knowledge of the field. The first time I came across penetration testing, I was curious about how security vulnerabilities were actually discovered and exploited — and that curiosity quickly turned into a passion.</p>
+        <p style="margin-top:14px">I started learning from the fundamentals, gradually moving into web application security, vulnerability assessment, and hands-on security testing. The more I learned, the more I wanted to understand not just how vulnerabilities work, but how to properly identify, validate, reproduce, and document them.</p>
+        <p style="margin-top:14px">Today, I focus on Web Application Security and Vulnerability Assessment, using tools such as Burp Suite, Nmap, Gobuster, and Linux to perform authorized security testing.</p>
+        <p style="margin-top:14px">My approach is practical and evidence-based: understand the application, identify potential weaknesses, validate their impact, and provide clear reports with reproducible evidence and remediation recommendations.</p>
+      </div>
+      <div class="card s2"><div class="k">Education</div><div class="big">Benha University</div><p>Faculty of Computers and Information Technology, expected 2027</p></div>
+      <div class="card s3"><div class="k">Open to</div><p>Junior and intern penetration testing roles, remote. Web security assessments.</p></div>
+      <div class="card s3"><div class="k">Ethics first</div><p>All testing is done only with written authorization from the system owner.</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow">Skills</p><h2>Skills and <span class="grad">tools</span></h2>
+    <div class="tabs" role="group" aria-label="Filter skills"><button class="on" data-f="all">All</button><button data-f="focus">Focus</button><button data-f="tools">Tools</button><button data-f="lang">Languages</button></div>
+    <div class="grid">
+      <div class="card" data-g="focus"><h3>Focus</h3><div class="chips"><span>Web Application Security</span><span>Vulnerability Assessment</span><span>Network Penetration Testing</span></div></div>
+      <div class="card" data-g="tools"><h3>Reconnaissance & Enum</h3><div class="chips"><span>Nmap</span><span>Gobuster</span><span>ffuf</span><span>dig</span><span>snmpwalk</span><span>smbclient</span></div></div>
+      <div class="card" data-g="tools"><h3>Web & Network Analysis</h3><div class="chips"><span>Burp Suite</span><span>Wireshark</span><span>Metasploit</span></div></div>
+      <div class="card" data-g="tools"><h3>Vulnerability Scanning</h3><div class="chips"><span>Nessus</span><span>OpenVAS</span></div></div>
+      <div class="card" data-g="tools"><h3>Password & Active Directory</h3><div class="chips"><span>Hydra</span><span>Hashcat</span><span>Rubeus</span><span>Mimikatz</span></div></div>
+      <div class="card" data-g="tools"><h3>Privilege Escalation</h3><div class="chips"><span>LinEnum</span><span>LinPEAS</span></div></div>
+      <div class="card" data-g="lang"><h3>Languages</h3><div class="chips"><span>Python</span><span>PHP</span><span>C++</span><span>JavaScript</span><span>C#</span><span>x86 Assembly</span><span>SQL</span><span>Bash/PowerShell</span></div></div>
+    </div>
+  </section>
+
+  <section id="foundations">
+    <p class="eyebrow">Foundations</p><h2>What I've <span class="grad">studied</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Networking & Infrastructure</h3>
+        <p>OSI & TCP/IP models, IP addressing & subnetting, deep dive into HTTP/HTTPS, DNS, FTP, SSH, SMB, SMTP, and LDAP. Hands-on experience with packet analysis using Wireshark, network reconnaissance, port scanning, and traffic sniffing.</p>
+      </div>
+      <div class="card">
+        <h3>Linux & Windows Admin</h3>
+        <p>Linux CLI, user & permission management, system services, and bash scripting. Windows Server administration, Active Directory core concepts (Domain Controller, GPOs, Kerberos, NTLM authentication), PowerShell, and basic privilege escalation vectors.</p>
+      </div>
+      <div class="card">
+        <h3>Web Application Security</h3>
+        <p>OWASP Top 10 hands-on exploitation and remediation: SQL Injection (SQLi), Cross-Site Scripting (XSS), IDOR, Broken Access Control, Command Injection, SSTI, and File Uploads. Advanced testing workflow using Burp Suite.</p>
+      </div>
+      <div class="card">
+        <h3>Penetration Testing Methodology</h3>
+        <p>End-to-end security assessment lifecycle: Reconnaissance & Enumeration, Vulnerability Identification, Exploitation & Proof-of-Concept (PoC) development, Risk Rating (CVSS), and writing actionable remediation reports.</p>
+      </div>
+    </div>
+    <div class="card now"><div><div class="k">Currently</div><h3 style="margin:0">Hack The Box CPTS path</h3><p>Certified Penetration Testing Specialist, in progress</p></div><div class="bar"><i></i></div></div>
+  </section>
+
+  <section id="platforms">
+    <p class="eyebrow">Active Platforms</p><h2>Hands-on <span class="grad">practice</span></h2>
+    <p class="sub">Continuous skill sharpening and practical security labs across major platforms.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="k">Platform</div>
+        <h3>TryHackMe</h3>
+        <p style="margin-bottom:12px">Ranked in the <strong>Top 7%</strong> globally with over <strong>75+ rooms</strong> completed spanning Network, Linux, and Web Security.</p>
+        <div class="chips"><span>Top 7%</span><span>75+ Rooms</span><span>Pre Security Path</span></div>
+      </div>
+      <div class="card">
+        <div class="k">Platform</div>
+        <h3>Hack The Box</h3>
+        <p style="margin-bottom:12px">Achieved <strong>Apprentice Rank</strong> and actively working through the Certified Penetration Testing Specialist (CPTS) path.</p>
+        <div class="chips"><span>Apprentice Rank</span><span>CPTS Path</span><span>Lab Machines</span></div>
+      </div>
+      <div class="card">
+        <div class="k">Platform</div>
+        <h3>PortSwigger Academy</h3>
+        <p style="margin-bottom:12px">Solving hands-on labs focused on OWASP Top 10 web application vulnerabilities and advanced exploitation techniques.</p>
+        <div class="chips"><span>SQLi</span><span>IDOR</span><span>File Upload</span><span>SSTI</span><span>Access Control</span></div>
+      </div>
+      <div class="card">
+        <div class="k">Platform</div>
+        <h3>HackerOne</h3>
+        <p style="margin-bottom:12px">Engaging in web application vulnerability research and staying updated with real-world security disclosures.</p>
+        <div class="chips"><span>Web Security</span><span>Vulnerability Research</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="training">
+    <p class="eyebrow">Training</p><h2>Education and <span class="grad">training</span></h2>
+    <div class="tl">
+      <div class="it card"><div class="when">Now</div><h3>DEPI, Digital Egypt Pioneers Initiative</h3><p>Penetration Testing and Vulnerability Assessment Track, in progress</p></div>
+      <div class="it card"><div class="when">Expected 2027</div><h3>Benha University</h3><p>Bachelor's in Computer Science (Faculty of Computers and Information Technology)</p></div>
+      <div class="it card"><div class="when">Aug 2025</div><h3>NTI and ITIDA</h3><p>Linux Red Hat Administration, summer training, 120 hours, score 85%</p></div>
+      <div class="it card"><div class="when">2024</div><h3>GDSC (Google Developer Student Clubs)</h3><p>Cybersecurity Bootcamp</p></div>
+      <div class="it card"><div class="when">2026</div><h3>MaharaTech</h3><p>Python fundamentals, security, networking, Red Hat</p></div>
+      <div class="it card"><div class="when">2025</div><h3>GEMMA</h3><p>IT training program</p></div>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <p class="eyebrow">Certificates</p><h2>Courses <span class="grad">completed</span></h2>
+    <div class="tabs" role="group" aria-label="Filter certificates"><button class="on" data-f="all">All</button><button data-f="mt">MaharaTech</button><button data-f="thm">TryHackMe</button></div>
+    <div class="grid">
+      <div class="card cert" data-g="mt"><div class="src">MaharaTech</div><h3>Ethical Hacking</h3><small>Apr 2026 &middot; 3h 29m</small></div>
+      <div class="card cert" data-g="mt"><div class="src">MaharaTech</div><h3>Red Hat System Administration I</h3><small>Apr 2026 &middot; 9h 11m</small></div>
+      <div class="card cert" data-g="mt"><div class="src">MaharaTech</div><h3>Implementation of Computer Network Fundamentals</h3><small>Apr 2026 &middot; 2h</small></div>
+      <div class="card cert" data-g="mt"><div class="src">MaharaTech</div><h3>Introduction to Network Security</h3><small>Apr 2026 &middot; 1h 15m</small></div>
+      <div class="card cert" data-g="mt"><div class="src">MaharaTech</div><h3>Python Programming Basics</h3><small>Apr 2026 &middot; 1h 38m</small></div>
+      <div class="card cert" data-g="thm"><div class="src">TryHackMe</div><h3>Pre Security Learning Path</h3><small>Feb 2026 &middot; 7h 38m</small></div>
+      <div class="card cert" data-g="mt"><div class="src">MaharaTech</div><h3>Computer Network Fundamentals</h3><small>Dec 2025 &middot; 1h</small></div>
+    </div>
+  </section>
+
+  <section id="profiles">
+    <p class="eyebrow">Profiles</p><h2>Find me <span class="grad">online</span></h2>
+    <div class="grid">
+      <a class="card pf" href="https://github.com/ziadsamir12" rel="noopener" target="_blank">GitHub<span>&rarr;</span></a>
+      <a class="card pf" href="https://tryhackme.com/p/zziadsamir11" rel="noopener" target="_blank">TryHackMe<span>&rarr;</span></a>
+      <a class="card pf" href="https://profile.hackthebox.com/profile/019fa419-a965-7259-877a-95209f0b7260" rel="noopener" target="_blank">Hack The Box<span>&rarr;</span></a>
+      <a class="card pf" href="https://wa.me/201276907158" rel="noopener" target="_blank">WhatsApp<span>&rarr;</span></a>
+      <a class="card pf" href="https://medium.com/@zziadsamir11" rel="noopener" target="_blank">Medium<span>&rarr;</span></a>
+      <a class="card pf" href="https://www.linkedin.com/in/ziadsamir12" rel="noopener" target="_blank">LinkedIn<span>&rarr;</span></a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="cc">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's <span class="grad">work together</span></h2>
+      <p class="lead">Looking for a junior penetration tester or an authorized web security assessment? Feel free to reach out via email.</p>
+      <div class="contact-emails">
+        <a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=Zziadsamir11@gmail.com" target="_blank" rel="noopener">Zziadsamir11@gmail.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>&copy; 2026 Ziad Samir Ahmed</footer>
+
+<script>
+(function(){
+var r=document.documentElement,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+try{var sv=localStorage.getItem('theme');if(sv)r.setAttribute('data-theme',sv)}catch(e){}
+document.getElementById('theme').addEventListener('click',function(){var c=r.getAttribute('data-theme'),l=c?c==='light':matchMedia('(prefers-color-scheme:light)').matches,n=l?'dark':'light';r.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}});
+var mt=document.getElementById('mt');mt.insertAdjacentHTML('beforeend',mt.innerHTML);
+document.querySelectorAll('.tabs').forEach(function(t){t.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;t.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});t.closest('section').querySelectorAll('[data-g]').forEach(function(i){i.hidden=!(b.dataset.f==='all'||i.dataset.g===b.dataset.f)})})});
+document.addEventListener('pointermove',function(e){var c=e.target.closest&&e.target.closest('.card');if(!c)return;var b=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-b.left)+'px');c.style.setProperty('--my',(e.clientY-b.top)+'px')});
+var links=document.querySelectorAll('.links a');
+if('IntersectionObserver' in window){
+ var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+ document.querySelectorAll('main section[id]').forEach(function(x){so.observe(x)});
+ if(!rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+ document.querySelectorAll('main section').forEach(function(x){x.classList.add('rv');io.observe(x)})}
+}
+})();
+</script>
+</body>
+</html>
